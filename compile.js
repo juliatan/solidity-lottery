@@ -1,8 +1,12 @@
-const path = require("path");
-const fs = require("fs");
-const solc = require("solc");
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
-const lotteryPath = path.resolve(__dirname, "contracts", "Lottery.sol");
-const source = fs.readFileSync(lotteryPath, "utf8");
+const path = require('path')
+const fs = require('fs')
+const solc = require('solc')
 
-module.exports = solc.compile(source, 1).contracts[":Lottery"];
+const lotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol')
+const source = fs.readFileSync(lotteryPath, 'utf8')
+
+module.exports = solc.compile(source, 1).contracts[':Lottery']
